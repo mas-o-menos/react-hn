@@ -4,4 +4,4 @@ machine:
 
 test:
   override:
-    - npm mom
+    - npm run mom
