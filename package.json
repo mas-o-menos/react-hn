@@ -33,7 +33,7 @@
     "firebase": "3.4.1",
     "history": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
-    "mom-agent": "0.0.2",
+    "mom-agent": "0.0.3",
     "nwb": "0.12.2",
     "object-assign": "^4.1.0",
     "react": "15.3.2",
