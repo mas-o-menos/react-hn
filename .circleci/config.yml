@@ -33,7 +33,7 @@ jobs:
 
       - run:
           name: Run lighthouse tests
-          command: npm run check:perf
+          command: sleep 5 && npm run check:perf
 
 
       # Send stats to MoM
