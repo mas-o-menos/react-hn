@@ -10,14 +10,11 @@
   },
   "scripts": {
     "build": "mkdir -p dist && nwb build && npm run copy-manifest && npm run clean && npm run generate-sw",
-    "deploy": "gcloud preview app deploy",
-    "lint-old": "./node_modules/eslint-config-jonnybuchanan/bin/lint.js src",
-    "lint:fix": "./node_modules/eslint-config-jonnybuchanan/bin/lint.js --fix .",
     "start": "node server.js",
-    "postinstall": "npm run build",
     "serve": "nwb serve",
     "copy-manifest": "cp public/manifest.json dist/manifest.json",
     "generate-sw": "node generate-sw.js",
+    "mom": "mom-agent",
     "clean": "rm -rf *.json.gzip dist/index.html"
   },
   "engines": {
@@ -36,6 +33,7 @@
     "firebase": "3.4.1",
     "history": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
+    "mom-agent": "0.0.1",
     "nwb": "0.12.2",
     "object-assign": "^4.1.0",
     "react": "15.3.2",
