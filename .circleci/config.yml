@@ -26,6 +26,25 @@ jobs:
           name: Build application
           command: npm run build
 
+      - run:
+          name: Install local server dependencies
+          command: npm install --no-save simple-http-server
+
+      - run:
+          name: Start local server
+          command: ./node_modules/simple-http-server/bin/server ./public
+          background: true
+
+      - run:
+          name: Run lighthouse tests
+          command: sleep 5 && npm run check:perf
+
+
+      # Send stats to MoM
+      - run:
+          name: Send stats to MoM
+          command: npm run mom
+
       # save cache
       - save_cache:
           paths:
