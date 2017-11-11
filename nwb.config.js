@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
+var StatsWebpackPlugin = require('stats-webpack-plugin')
 
 module.exports = {
   type: 'react-app',
@@ -23,14 +24,23 @@ module.exports = {
     extra: {
       plugins: [
         new CommonsChunkPlugin({
-            names: ['core'],
-            filename: '[name].js',
-            minChunks: Infinity
+          names: ['core'],
+          filename: '[name].js',
+          minChunks: Infinity
         }), 
         new HtmlWebpackPlugin({
           filename: 'views/index.ejs',
           template: 'src/views/index.ejs',
           markup: '<div id="app"><%- markup %></div>'
+        }),
+        new StatsWebpackPlugin('../stats/webpack.json', {
+          assets: true,
+          performance: true,
+          timings: true,
+          children: false,
+          source: false,
+          modules: false,
+          chunks: false,
         })
       ]
     }    
