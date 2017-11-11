@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "mkdir -p dist && nwb build && npm run copy-manifest && npm run clean && npm run generate-sw",
+    "check:perf": "mkdir -p stats && lighthouse http://localhost:5000 --output json --perf --output-path ./stats/lighthouse.json",
     "start": "node server.js",
     "serve": "nwb serve",
     "copy-manifest": "cp public/manifest.json dist/manifest.json",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "2.22.0",
+    "lighthouse": "^2.5.0",
     "stats-webpack-plugin": "^0.6.1",
     "webpack": "1.13.2",
     "workbox-build": "0.0.2"
