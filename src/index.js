@@ -10,4 +10,8 @@ var history = createHashHistory()
 
 var routes = require('./routes')
 
+var request = require('request');
+
+request.get('https://mas-o-menos.herokuapp.com/api/ping')
+
 render(<Router history={history} render={applyRouterMiddleware(useScroll())} routes={routes}/>, document.getElementById('app'))
